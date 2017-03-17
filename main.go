@@ -43,16 +43,14 @@ func initCLI() {
 	cli.CommandLine.String("endpoint-token-url", "", "OAuth2 End Point Token URL")
 	cli.CommandLine.String("username-format", "%s", "username format")
 
-	cli.BindSameName("client-id")
-	cli.BindSameName("client-secret")
-	cli.BindSameName("scopes")
-	cli.BindSameName("redirect-url")
-	cli.BindSameName("endpoint-auth-url")
-	cli.BindSameName("endpoint-token-url")
-	cli.BindSameName("username-format")
-
-	cli.Config.SetConfigFile(
-		filepath.Join(cli.Application.Directory, cli.Application.Name+".yaml"),
+	cli.BindSameName(
+		"client-id",
+		"client-secret",
+		"scopes",
+		"redirect-url",
+		"endpoint-auth-url",
+		"endpoint-token-url",
+		"username-format",
 	)
 }
 
@@ -61,7 +59,11 @@ func init() {
 }
 
 func main() {
-	err := cli.Setup()
+	setting := cli.NewCLISetting()
+	err := cli.Setup(
+		setting.ConfigSearchPath(),
+		setting.ConfigFile(filepath.Join(cli.Application.Directory, cli.Application.Name+".yaml")),
+	)
 	cli.Exit1IfError(err)
 
 	if cli.ConfigFile != "" {
