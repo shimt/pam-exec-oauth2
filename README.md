@@ -33,14 +33,14 @@ edit `/opt/pam-exec-oauth2/pam-exec-oauth2.yaml`
 ```yaml
 {
     client-id: "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-	client-secret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-	redirect-url: "urn:ietf:wg:oauth:2.0:oob",
+    client-secret: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    redirect-url: "urn:ietf:wg:oauth:2.0:oob",
     scopes: ["email"],
-	endpoint-auth-url: "https://login.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/oauth2/authorize",
-	endpoint-token-url: "https://login.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/oauth2/token",
-	extra-parameters: {
-		resource: "https://graph.windows.net/"
-	},
-	username-format: "%s@example.org",
+    endpoint-auth-url: "https://login.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/oauth2/authorize",
+    endpoint-token-url: "https://login.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/oauth2/token",
+    extra-parameters: {
+        resource: "https://graph.windows.net/"
+    },
+    username-format: "%s@example.org",
 }
 ```
