@@ -214,7 +214,10 @@ func (c *Config) PasswordCredentialsTokenEx(ctx context.Context, username, passw
 		"grant_type": {"password"},
 		"username":   {username},
 		"password":   {password},
-		"scope":      internal.CondVal(strings.Join(c.Scopes, " ")),
+	}
+
+	if len(c.Scopes) > 0 {
+		values.Set("scope", strings.Join(c.Scopes, " "))
 	}
 
 	if parameters != nil {
