@@ -3,10 +3,10 @@
 // license that can be found in the LICENSE file.
 
 // Package odnoklassniki provides constants for using OAuth2 to access Odnoklassniki.
-package odnoklassniki // import "golang.org/x/oauth2/odnoklassniki"
+package odnoklassniki // import "github.com/shimt/pam-exec-oauth2/internal/oauth2/odnoklassniki"
 
 import (
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 // Endpoint is Odnoklassniki's OAuth 2.0 endpoint.

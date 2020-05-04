@@ -3,10 +3,10 @@
 // license that can be found in the LICENSE file.
 
 // Package yahoo provides constants for using OAuth2 to access Yahoo.
-package yahoo // import "golang.org/x/oauth2/yahoo"
+package yahoo // import "github.com/shimt/pam-exec-oauth2/internal/oauth2/yahoo"
 
 import (
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 // Endpoint is Yahoo's OAuth 2.0 endpoint.

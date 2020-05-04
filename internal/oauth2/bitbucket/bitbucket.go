@@ -6,7 +6,7 @@
 package bitbucket
 
 import (
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 // Endpoint is Bitbucket's OAuth 2.0 endpoint.

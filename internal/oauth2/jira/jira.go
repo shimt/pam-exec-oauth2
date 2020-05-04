@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 // ClaimSet contains information about the JWT signature according

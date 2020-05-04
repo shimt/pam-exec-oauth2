@@ -15,7 +15,7 @@ import (
 	"runtime"
 
 	"cloud.google.com/go/compute/metadata"
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 // Credentials holds Google credentials, including "Application Default Credentials".

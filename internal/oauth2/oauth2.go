@@ -6,7 +6,7 @@
 // OAuth2 authorized and authenticated HTTP requests,
 // as specified in RFC 6749.
 // It can additionally grant authorization with Bearer JWT.
-package oauth2 // import "golang.org/x/oauth2"
+package oauth2 // import "github.com/shimt/pam-exec-oauth2/internal/oauth2"
 
 import (
 	"bytes"
@@ -17,7 +17,7 @@ import (
 	"strings"
 	"sync"
 
-	"golang.org/x/oauth2/internal"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2/internal"
 )
 
 // NoContext is the default context you should supply if not using
@@ -37,7 +37,7 @@ func RegisterBrokenAuthHeaderProvider(tokenURL string) {}
 // Config describes a typical 3-legged OAuth2 flow, with both the
 // client application information and the server's endpoint URLs.
 // For the client credentials 2-legged OAuth2 flow, see the clientcredentials
-// package (https://golang.org/x/oauth2/clientcredentials).
+// package (https://github.com/shimt/pam-exec-oauth2/internal/oauth2/clientcredentials).
 type Config struct {
 	// ClientID is the application's ID.
 	ClientID string
@@ -196,6 +196,37 @@ func (c *Config) PasswordCredentialsToken(ctx context.Context, username, passwor
 		v.Set("scope", strings.Join(c.Scopes, " "))
 	}
 	return retrieveToken(ctx, c, v)
+}
+
+// PasswordCredentialsTokenEx converts a resource owner username and password
+// pair into a token.
+//
+// Per the RFC, this grant type should only be used "when there is a high
+// degree of trust between the resource owner and the client (e.g., the client
+// is part of the device operating system or a highly privileged application),
+// and when other authorization grant types are not available."
+// See https://tools.ietf.org/html/rfc6749#section-4.3 for more info.
+//
+// The HTTP client to use is derived from the context.
+// If nil, http.DefaultClient is used.
+func (c *Config) PasswordCredentialsTokenEx(ctx context.Context, username, password string, parameters url.Values) (*Token, error) {
+	values := url.Values{
+		"grant_type": {"password"},
+		"username":   {username},
+		"password":   {password},
+	}
+
+	if len(c.Scopes) > 0 {
+		values.Set("scope", strings.Join(c.Scopes, " "))
+	}
+
+	if parameters != nil {
+		for k, v := range parameters {
+			values[k] = v
+		}
+	}
+
+	return retrieveToken(ctx, c, values)
 }
 
 // Exchange converts an authorization code into a token.

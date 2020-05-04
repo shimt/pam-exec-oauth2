@@ -6,7 +6,7 @@
 package nokiahealth
 
 import (
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 // Endpoint is Nokia Health Mate's OAuth 2.0 endpoint.

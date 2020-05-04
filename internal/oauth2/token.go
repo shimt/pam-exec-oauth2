@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"golang.org/x/oauth2/internal"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2/internal"
 )
 
 // expiryDelta determines how earlier a token should be considered

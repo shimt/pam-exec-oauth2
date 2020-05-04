@@ -29,7 +29,7 @@ import (
 	"path/filepath"
 
 	"github.com/shimt/go-simplecli"
-	"golang.org/x/oauth2"
+	"github.com/shimt/pam-exec-oauth2/internal/oauth2"
 )
 
 var cli = simplecli.NewCLI()
