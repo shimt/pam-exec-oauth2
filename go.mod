@@ -5,7 +5,7 @@ require (
 	github.com/golang/protobuf v1.3.4 // indirect
 	github.com/shimt/go-simplecli v0.0.4
 	golang.org/x/net v0.0.0-20200301022130-244492dfa37a
-	google.golang.org/appengine v1.6.5 // indirect
+	google.golang.org/appengine v1.6.5
 )
 
-go 1.13
+go 1.14
