@@ -1,5 +1,7 @@
 # pam-exec-oauth2
 
+**This repository is no longer maintained.**
+
 ## Install
 
 ```bash
