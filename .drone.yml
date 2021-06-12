@@ -1,0 +1,25 @@
+---
+kind: pipeline
+type: docker
+name: go
+
+steps:
+
+- name: build
+  image: golang
+  commands:
+  - go get
+  - go build -v
+
+---
+kind: pipeline
+type: docker
+name: go-1.15
+
+steps:
+
+- name: build
+  image: golang:1.15
+  commands:
+  - go get
+  - go build -v
